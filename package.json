@@ -1,0 +1,21 @@
+{
+  "name": "devrel-stats",
+  "version": "0.1.0",
+  "description": "Devrel metrics holder",
+  "main": "download.js",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "db-migrate": "^0.11.11",
+    "db-migrate-pg": "^1.2.2",
+    "dotenv": "^8.2.0",
+    "download-stats": "^0.3.4",
+    "npm-api": "^1.0.0",
+    "pg": "^8.2.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
