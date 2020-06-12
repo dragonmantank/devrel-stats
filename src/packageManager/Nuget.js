@@ -14,13 +14,10 @@ class Nuget extends PackageManager {
     fetchStats = async () => {
         try {
             const today = new Date();
-            const yesterday = new Date(today);
-            yesterday.setDate(today.getDate() - 1);
-
             const response = await axios.get(`https://api-v2v3search-0.nuget.org/query?q=${this.packageName}`);
             const newTotal = response.data.data[0].totalDownloads;
 
-            const previousData = await db.query('SELECT downloads FROM nuget_downloads WHERE date = $1 AND library = $2', [yesterday.toISOString().slice(0,10), this.packageName]);
+            const previousData = await db.query('SELECT downloads FROM nuget_downloads WHERE date = (SELECT MAX(date) FROM nuget_downloads WHERE library = $1) AND library = $1', [this.packageName]);
             let previousTotal = 0;
             
             if (previousData.rowCount === 1) {

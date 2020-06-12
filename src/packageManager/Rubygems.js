@@ -14,16 +14,13 @@ class Rubygems extends PackageManager {
     fetchStats = async () => {
         try {
             const today = new Date();
-            const yesterday = new Date(today);
-            yesterday.setDate(today.getDate() - 1);
-
             const response = await axios.get(`https://rubygems.org/api/v1/versions/${this.packageName}.json`);
             let newTotal = 0;
             response.data.forEach(blob => {
                 newTotal = newTotal + blob.downloads_count;
             });
 
-            const previousData = await db.query('SELECT downloads FROM rubygems_downloads WHERE date = $1 AND library = $2', [yesterday.toISOString().slice(0,10), this.packageName]);
+            const previousData = await db.query('SELECT downloads FROM rubygems_downloads WHERE date = (SELECT MAX(date) FROM rubygems_downloads WHERE library = $1) AND library = $1', [this.packageName]);
             let previousTotal = 0;
             
             if (previousData.rowCount === 1) {
