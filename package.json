@@ -4,7 +4,7 @@
   "description": "Devrel metrics holder",
   "main": "download.js",
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "db-migrate": "^0.11.11",
     "db-migrate-pg": "^1.2.2",
     "dotenv": "^8.2.0",
