@@ -2,20 +2,52 @@
   "name": "devrel-stats",
   "version": "0.1.0",
   "description": "Devrel metrics holder",
-  "main": "download.js",
+  "main": "server.js",
   "dependencies": {
+    "@js-joda/core": "^3.2.0",
+    "autoprefixer": "^10.1.0",
     "axios": "^0.19.2",
+    "body-parser": "^1.19.0",
+    "chart.js": "^2.9.4",
+    "core-js": "^3.8.1",
     "db-migrate": "^0.11.11",
     "db-migrate-pg": "^1.2.2",
     "dotenv": "^8.2.0",
     "download-stats": "^0.3.4",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
     "npm-api": "^1.0.0",
-    "pg": "^8.2.1"
+    "pg": "^8.2.1",
+    "regenerator-runtime": "^0.13.7",
+    "slugify": "^1.4.6",
+    "tailwindcss": "^2.0.2"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@babel/cli": "^7.12.10",
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^5.0.1",
+    "nodemon": "^2.0.6",
+    "postcss": "^8.2.1",
+    "postcss-loader": "^4.1.0",
+    "style-loader": "^2.0.0",
+    "tailwindcss-cli": "^0.1.2",
+    "webpack": "^5.10.3",
+    "webpack-cli": "^4.2.0",
+    "webpack-dev-server": "^3.11.0"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "buildcss": "npx tailwindcss-cli build resources/css/tailwind.css -o public/dist/app.css",
+    "build": "webpack --progress && npm run buildcss",
+    "buildwatch": "webpack --progress --watch",
+    "devstart": "nodemon ./server.js",
+    "serverstart": "rm -rf public/dist/ && webpack --progress && npm run buildcss && DEBUG=devrel-stats:* npm run devstart"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "engines": {
+    "node": "14.x"
+  }
 }

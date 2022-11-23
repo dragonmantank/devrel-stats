@@ -14,14 +14,16 @@ let packages = [
     new Rubygems('nexmo-oas-renderer'),
     new Rubygems('nexmo_rack'),
     new Nuget('Nexmo.CSharp.Client'),
+    new Nuget('Vonage'),
     new Packagist('nexmo/client'),
+    new Packagist('vonage/client'),
     new Packagist('nexmo/laravel'),
     new Packagist('nexmo/client-core'),
     new Packagist('vonage/client-core'),
-    new Packagist('vonage/client'),
     new Pypi('nexmo'),
+    new Pypi('vonage'),
     new Npm('nexmo'),
-    new Npm('vonage'),
+    new Npm('@vonage/server-sdk'),
     new Npm('nexmo-cli'),
 ];
 

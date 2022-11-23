@@ -14,7 +14,7 @@ class Npm extends PackageManager {
     fetchStats = async () => {
         try {
             const wrapper = new Promise((resolve, reject) => {
-                NpmStats.get.lastDay('nexmo', (err, res) => {
+                NpmStats.get.lastDay(this.packageName, (err, res) => {
                     if (err) reject(err)
                     else {
                         resolve(res);

@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>Monthly Stats</title>
+    </head>
+
+    <body>
+        <h1>Monthly Stats</h1>
+
+        <table border=1>
+            <tr>
+                <th>Language</th>
+                <th>Library</th>
+                <th><%= lastMonth.month() %> <%= lastMonth.year() %></th>
+                <th><%= today.month() %> <%= today.year() %></th>
+            </tr>
+            <% for (row of downloads) { %>
+            <tr>
+                <td><%= row.language %></td>
+                <td><%= row.library %></td>
+                <td><%= row.previous.toLocaleString() %></td>
+                <td><%= row.current.toLocaleString() %></td>
+            </tr>
+            <% } %>
+        </table>
+    </body>
+</html>
