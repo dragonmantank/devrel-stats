@@ -9,6 +9,7 @@ stats = new Stats();
 
 let packages = [
     new Rubygems('nexmo'),
+    new Rubygems('vonage'),
     new Rubygems('nexmo_rails'),
     new Rubygems('nexmo-oas-renderer'),
     new Rubygems('nexmo_rack'),
@@ -16,8 +17,11 @@ let packages = [
     new Packagist('nexmo/client'),
     new Packagist('nexmo/laravel'),
     new Packagist('nexmo/client-core'),
+    new Packagist('vonage/client-core'),
+    new Packagist('vonage/client'),
     new Pypi('nexmo'),
     new Npm('nexmo'),
+    new Npm('vonage'),
     new Npm('nexmo-cli'),
 ];
 
