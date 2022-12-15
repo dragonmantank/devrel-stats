@@ -15,7 +15,7 @@
     "dotenv": "^8.2.0",
     "download-stats": "^0.3.4",
     "ejs": "^3.1.5",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "npm-api": "^1.0.0",
     "pg": "^8.2.1",
     "regenerator-runtime": "^0.13.7",
